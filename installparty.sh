@@ -3,8 +3,6 @@
 . "./lib/terraform.sh"
 . "./lib/docker.sh"
 . "./lib/docker-compose.sh"
-#. ./lib.dockercompose.sh
-#. ./lib/*
 ##################### - FUNCT - #############################
 
 #docker_compose() {
@@ -28,7 +26,6 @@ help() {
 
 if [ $# -lt 1 ] ; then
 	help
-
 elif [ "$1" = -h ] ; then
 	help
 elif [ "$1" = docker ] ; then
