@@ -8,7 +8,7 @@ packer() {
 	echo "[*] Checking if $var exist.."
 	echo ""
 	if [ '$var --version' ] ; 
-	    then echo "$var already installed." && exit 1 
+	    then echo "$var already installed." && exit 0 
 	fi
 	echo "[*] Adding $var public-key and updating source list.."
 	echo ""
