@@ -29,22 +29,22 @@ jobs:
         run:  sh ./installparty.sh
       
       - name: Program -h flag 
-        run: sh installparty -h        
+        run: sh ./installparty.sh -h        
       
       - name: Packer installation
         run: sudo sh installparty.sh packer
       
       - name: Docker installation
-        run: sudo sh installparty docker
+        run: sudo sh installparty.sh docker
       
       - name: Terraform installation
-        run: sudo sh installparty terraform
+        run: sudo sh installparty.sh terraform
       
       # Installed veryfication
       - name: Docker installed verification
-        run: sudo sh installparty docker
+        run: sudo sh installparty.sh docker
       - name: Packer installed verification
-        run: sudo sh installparty packer
+        run: sudo sh installparty.sh packer
       - name: Terraform installed verification
-        run: sudo sh installparty terraform
+        run: sudo sh installparty.sh terraform
         
