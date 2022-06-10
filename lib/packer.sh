@@ -7,7 +7,7 @@ packer() {
 	apt-get update -y
 	echo "[*] Checking if $var exist.."
 	echo ""
-	if [ -f /usr/bin/$var ] ; then echo "$var already installed." && exit 0 
+	if [ -f /usr/bin/$var ] ; then echo "$var already installed." ; exit 0 
 	fi
 	echo "[*] Adding $var public-key and updating source list.."
 	echo ""
