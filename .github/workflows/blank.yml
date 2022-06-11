@@ -25,12 +25,26 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
       - name: Program demo start
-        run: echo "starting program" && sh ./installparty.sh
+        run:  sh ./installparty.sh
+      
+      - name: Program -h flag 
+        run: sh ./installparty.sh -h        
+      
+      - name: Packer installation
+        run: sudo sh installparty.sh packer
+      
+      - name: Docker installation
+        run: sudo sh installparty.sh docker
+      
+      - name: Terraform installation
+        run: sudo sh installparty.sh terraform
+      
+      # Installed veryfication
+      - name: Docker installed verification
+        run: sudo sh installparty.sh docker
+      - name: Packer installed verification
+        run: sudo sh installparty.sh packer
+      - name: Terraform installed verification
+        run: sudo sh installparty.sh terraform
         
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo "Packer"
-          sudo sh installparty.sh packer
