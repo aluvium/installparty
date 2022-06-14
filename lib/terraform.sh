@@ -1,9 +1,6 @@
 #!/bin/bash
 var1="terraform"
 terraform() {
-	echo ""
-	echo "[*] Updating system.."
-	echo ""
 	apt-get update -y
 	echo "[*] Checking if $var1 exist.."
 	echo ""
@@ -13,11 +10,13 @@ terraform() {
 	echo ""
 	curl -L https://apt.releases.hashicorp.com/gpg | apt-key add -
 	
-	sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/terraform.list'
-        echo "[*] Installing $var1.. " 
+	if ! [ -f /etc/apt/sources.list.d/hashicorp.list  ] ; then 
+	  sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list'
+        fi	
+	echo "[*] Installing $var1.. " 
 	echo ""
 	apt-get update -y
-	apt-get install $var1
+        apt-get install $var1
 	echo "[*] Instalation completed."
 	echo ""
 }
