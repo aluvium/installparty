@@ -4,6 +4,7 @@
 . "./lib/docker.sh"
 . "./lib/docker-compose.sh"
 . "./lib/packer.sh"
+. "./lib/k3s.sh"
 ##################### - FUNCT - #############################
 
 #docker_compose() {
@@ -24,6 +25,7 @@ help() {
 	echo "    docker-compose"
 	echo "    terraform"
 	echo "    packer"
+	echo "    k3s"
 }
 
 #############################################################
@@ -39,7 +41,9 @@ elif [ "$1" = docker-compose ] ; then
 elif [ "$1" = terraform ] ; then
 	terraform
 elif [ "$1" = packer ] ; then
-       packer	
+        packer	
+elif [  "$1" = k3s ] ; then
+	k3s
 else
 	echo "'$1' is a wrong argument, for help use -h"
 fi
