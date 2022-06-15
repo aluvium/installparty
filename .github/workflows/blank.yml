@@ -24,7 +24,7 @@ jobs:
       - name: Program demo start
         run: |  
           sh ./installparty.sh 
-          run: sh ./installparty.sh -h        
+          sh ./installparty.sh -h        
       # 1
       - name: Docker installation
         run: sudo sh installparty.sh docker
