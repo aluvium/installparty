@@ -40,6 +40,9 @@ jobs:
       - name: Terraform installation
         run: sudo sh installparty.sh terraform
       
+      - name: K3s installation
+        run: sudo sh installparty.sh k3s
+    
       # Installed veryfication
       - name: Docker installed verification
         run: sudo sh installparty.sh docker
@@ -47,4 +50,5 @@ jobs:
         run: sudo sh installparty.sh packer
       - name: Terraform installed verification
         run: sudo sh installparty.sh terraform
+      
         
