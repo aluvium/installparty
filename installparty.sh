@@ -2,7 +2,7 @@
 ##################### - Sources - ###########################
 . "./lib/terraform.sh"
 . "./lib/docker.sh"
-. "./lib/docker-compose.sh"
+#. "./lib/docker-compose.sh"
 . "./lib/packer.sh"
 . "./lib/k3s.sh"
 ##################### - FUNCT - #############################
