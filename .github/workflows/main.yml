@@ -18,14 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      # 0
+      - name: Checkout
+        uses: actions/checkout@v3
+      # 0 --DEMO--START
       - name: Program demo start
         run: |  
           sh ./installparty.sh 
-          sh ./installparty.sh -h        
-      # -----------------------------------------------------    
+          sh ./installparty.sh -h            
       # 1 --DOCKER--
       - name: Docker installation
         run: sudo sh installparty.sh docker
