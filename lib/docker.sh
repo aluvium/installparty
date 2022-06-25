@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/env bash
 var2="docker"
+var3="$1"
 docker() {
+        echo "[*] Checking if $var2-compose exist.."
+        echo ""
+	if [ -f /usr/bin/$var2 ] ; then echo "$var2 already installed." && exit 0 ; fi  
 	apt-get update -y
-	echo "[*] Checking if $var2 exist.."
-	echo ""
-        if [ -f /usr/bin/$var1 ] ; then echo "$var1 already installed." && exit 0 ; fi  
-	
 	# KEY
 	echo "[*] Adding $var2 public-key and updating source list.."
 	echo ""
@@ -22,9 +22,12 @@ docker() {
 	echo ""
 }
 docker_compose() {
-       if ! [ -f /usr/bin/docker ] ; then docker ; fi
-       
-       sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-       sudo chmod +x /usr/local/bin/docker-compose
-       docker-compose --version
+        echo "[*] Checking if $var3 exist.."
+        echo ""
+        if ! [ -f /usr/bin/docker ] ; then docker ; fi
+        if [ $($var3 2> /dev/null && echo $?) -eq 0 ] ; then echo "$var3 already installed" && exit 0 ; fi
+
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose --version
 }
