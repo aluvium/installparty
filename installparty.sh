@@ -36,4 +36,4 @@ case "$1" in
 	"-h")               help ;;
   	 *  )               help ;;
 esac
-exit 
+exit 0
