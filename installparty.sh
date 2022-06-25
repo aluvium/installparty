@@ -27,7 +27,7 @@ help() {
 case "$1" in 
 	"docker")	    docker;;
 	"docker-compose")   docker_compose;;
-	"ks3")              k3s;;
+	"k3s")              k3s;;
 	"arkade")           arkade;;
 	"helm")             helm;;
 	"terraform")        terraform;;

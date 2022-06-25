@@ -1,6 +1,6 @@
 #!/bin/bash
-var1="terraform"
 terraform() {
+        var1="terraform"
 	apt-get update -y
 	if [ -f /usr/bin/$var1 ] ; then echo "$var1 already installed." && exit 0 ; fi
 	curl -L https://apt.releases.hashicorp.com/gpg | apt-key add -
