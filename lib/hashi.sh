@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/env bash
 terraform() {
         var1="terraform"
-	apt-get update -y
 	if [ -f /usr/bin/$var1 ] ; then echo "$var1 already installed." && exit 0 ; fi
+	apt-get update -y
 	curl -L https://apt.releases.hashicorp.com/gpg | apt-key add -
 	
 	if [ -f /etc/apt/sources.list.d/hashicorp.list  ] ; then sudo rm '/etc/apt/sources.list.d/hashicorp.list'; fi

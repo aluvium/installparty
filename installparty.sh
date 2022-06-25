@@ -25,13 +25,13 @@ help() {
 #############################################################
 
 case "$1" in 
-	"docker")	    docker;;
-	"docker-compose")   docker_compose;;
-	"k3s")              k3s;;
-	"arkade")           arkade;;
-	"helm")             helm;;
-	"terraform")        terraform;;
-	"packer")           packer;;
+	"docker")	    docker ;;
+	"docker-compose")   docker_compose ;;
+	"k3s")              k3s ;;
+	"arkade")           arkade ;;
+	"helm")             helm ;;
+	"terraform")        terraform ;;
+	"packer")           packer ;;
 
 	"-h")               help ;;
   	 *  )               help ;;
