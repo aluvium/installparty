@@ -1,10 +1,8 @@
 #!/bin/bash
 ##################### - Sources - ###########################
-. "./lib/terraform.sh"
+. "./lib/hashi.sh"
 . "./lib/docker.sh"
-#. "./lib/docker-compose.sh"
-. "./lib/packer.sh"
-. "./lib/k3s.sh"
+. "./lib/kuber.sh"
 ##################### - FUNCT - #############################
 
 #docker_compose() {
@@ -21,29 +19,21 @@ help() {
 	echo "This tool works only on Debian operating systems."
 	echo ""
 	echo "[*] List of tools:"
-	echo "    docker"
-	echo "    docker-compose"
-	echo "    terraform"
-	echo "    packer"
-	echo "    k3s"
+	cat ./vars.txt | sort
 }
 
 #############################################################
 
-if [ $# -lt 1 ] ; then
-	help
-elif [ "$1" = -h ] ; then
-	help
-elif [ "$1" = docker ] ; then
-	docker
-elif [ "$1" = docker-compose ] ; then
-	docker_compose
-elif [ "$1" = terraform ] ; then
-	terraform
-elif [ "$1" = packer ] ; then
-        packer	
-elif [  "$1" = k3s ] ; then
-	k3s
-else
-	echo "'$1' is a wrong argument, for help use -h"
-fi
+case "$1" in 
+	"docker")	    docker;;
+	"docker-compose")   docker_compose;;
+	"ks3")              k3s;;
+	"arkade")           arkade;;
+	"helm")             helm;;
+	"terraform")        terraform;;
+	"packer")           packer;;
+
+	"-h")               help ;;
+  	 *  )               help ;;
+esac
+exit 
