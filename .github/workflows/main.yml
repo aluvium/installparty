@@ -35,6 +35,12 @@ jobs:
       # 2 --Kubernetes--  
       - name: K3s installation
         run: sudo sh installparty.sh k3s
+      # 2.1 
+      - name: Arkade
+        run: sudo sh installparty.sh arkade
+      # 2.2
+      - name: Helm
+        run: sudo sh installparty.sh helm  
       
       # 3 --Hashicorp stuff-- 
       - name: Packer installation
