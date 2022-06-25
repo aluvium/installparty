@@ -1,20 +1,20 @@
-name: CI
-# Controls when the workflow will run
+# 1. Check every possible valid command
+# 2. After every installeted all commponent check if program exit correctly 
+
+name: 'cmd-checker'
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 ########################################################################################
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-# Every possible valid cmd check
-  cmd-check:
+  valid-cmd-check:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,22 +25,32 @@ jobs:
         run: |  
           sh ./installparty.sh 
           sh ./installparty.sh -h        
-      # 1
+      # -----------------------------------------------------    
+      # 1 --DOCKER--
       - name: Docker installation
         run: sudo sh installparty.sh docker
-      # 2  
+      # 1.1
+      - name: Docker Compose installation
+        run: sudo sh installparty.sh docker-compose
+      
+      # 2 --Kubernetes--  
       - name: K3s installation
         run: sudo sh installparty.sh k3s
-      # 3  
+      
+      # 3 --Hashicorp stuff-- 
       - name: Packer installation
         run: sudo sh installparty.sh packer  
-      # 4
+      # 3.1
       - name: Terraform installation
         run: sudo sh installparty.sh terraform
-      # 5
+      # -----------------------------------------------------
+      # X -- Command runs second time for checking proper exit
       # After proper installation cmd-check
+      # X.1
       - name: Docker installed verification
         run: sudo sh installparty.sh docker
+      # X.2
+      # X.3
       - name: Packer installed verification
         run: sudo sh installparty.sh packer
       - name: Terraform installed verification
