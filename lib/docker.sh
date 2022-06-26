@@ -21,7 +21,7 @@ docker() {
 	echo ""
 }
 docker_compose() {
-        var2="$1"
+        var2="docker_compose"
         echo "[*] Checking if $var2 exist.."
         echo ""
         if ! [ -f /usr/bin/docker ] ; then docker ; fi

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 terraform() {
         var1="terraform"
 	if [ -f /usr/bin/$var1 ] ; then echo "$var1 already installed." && exit 0 ; fi
@@ -12,7 +12,7 @@ terraform() {
 	echo ""
 }
 packer() {
-	var2=$1
+	var1="packer"
         apt-get update -y
         if [ -f /usr/bin/$var1 ] ; then echo "$var1 already installed." ; exit 0
         fi
