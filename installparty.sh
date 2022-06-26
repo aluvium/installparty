@@ -28,6 +28,7 @@ case "$1" in
 	"docker")	    docker ;;
 	"docker-compose")   docker_compose ;;
 	"k3s")              k3s ;;
+	"k3s-agent")        k3s_agent ;;
 	"arkade")           arkade ;;
 	"helm")             helm ;;
 	"terraform")        terraform ;;

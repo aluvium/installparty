@@ -1,21 +1,23 @@
-#!/bin/env bash
+#!/bin/bash
 k3s() {
-  var1="k3s"
-  if [ $($var1 2> /dev/null && echo $?) -eq 0 ] ; then echo "$var1 already installed" && exit 0 ; fi
-  apt-get update
-  curl -fLS https://get.k3s.io | sh -
+    apt-get update
+    curl -fLS https://get.k3s.io | sh -
 }
 arkade() {
-  k3s
-  var2=$1
-  if [ $($var2 2> /dev/null && echo $?) -eq 0 ] ; then echo "$var2 already installed" && exit 0 ; fi
-  curl -fLS https://get.arkade.dev | sudo sh
+    k3s
+    curl -fLS https://get.arkade.dev | sudo sh
 }
 helm() {
-  k3s
-  var2=$1
-  if [ $($var2 2> /dev/null && echo $?) -eq 0 ] ; then echo "$var2 already installed" && exit 0 ; fi
-  curl -fLS -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-  chmod 700 get_helm.sh
-  ./get_helm.sh
+    k3s
+    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash  
 }  
+k3s_agent(){
+    echo -n "Enter K3S Token: "
+    read token
+    echo "Enter address of the server with port eg. https://server-url:6443"
+    read server
+    echo "$token"
+    echo "$server"
+    apt-get update
+    curl -fLS https://get.k3s.io |  K3S_TOKEN=$token K3S_URL=$server sh -    
+}
