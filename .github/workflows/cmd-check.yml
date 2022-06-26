@@ -1,0 +1,77 @@
+# 1. Check every possible valid command
+# 2. After every installeted all commponent check if program exit correctly 
+
+name: 'cmd-checker'
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+########################################################################################
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  cmd-check-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Program demo init
+        run: |  
+          sh ./installparty.sh 
+          sh ./installparty.sh -h 
+
+  cmd-check-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Docker installation
+        run: sudo sh installparty.sh docker
+      - name: Docker-Compose installation
+        run: sudo sh installparty.sh docker-compose
+      
+      - name: Installed components verification
+        run:  | 
+          sudo sh installparty.sh docker
+          sudo sh installparty.sh docker-compose
+          
+  cmd-check-hashicorp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Terraform installation
+        run: sudo sh installparty.sh terraform
+      - name: Packer installation
+        run: sudo sh installparty.sh packer
+      
+      - name: Installed components verification
+        run:  | 
+          sudo sh installparty.sh packer
+          sudo sh installparty.sh terraform
+
+  cmd-check-kubernetes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: K3s installation
+        run: sudo sh installparty.sh k3s
+      - name: Arkade installation 
+        run: sudo sh installparty.sh arkade
+      - name: Helm installation 
+        run: sudo sh installparty.sh helm
+      
+      - name: Installed components verification
+        run:  | 
+          sudo sh installparty.sh k3s
+          sudo sh installparty.sh arkade
+          sudo sh installparty.sh helm
