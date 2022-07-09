@@ -6,4 +6,4 @@ arkade
 helm
 terraform
 packer
-docker ;;
+docker
