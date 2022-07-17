@@ -7,3 +7,4 @@ helm
 terraform
 packer
 docker
+jenkins

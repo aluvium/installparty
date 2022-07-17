@@ -3,11 +3,9 @@
 . "./lib/hashi.sh"
 . "./lib/docker.sh"
 . "./lib/kuber.sh"
+. "./lib/jenk.sh"
 ##################### - FUNCT - #############################
 
-#docker_compose() {
-#        echo "helo word $1"
-#}
 help() {
 	echo ""
 	echo ""
@@ -33,7 +31,8 @@ case "$1" in
 	"helm")             helm ;;
 	"terraform")        terraform ;;
 	"packer")           packer ;;
-
+        "jenkins")          jenkins ;;
+	
 	"-h")               help ;;
   	 *  )               help ;;
 esac
