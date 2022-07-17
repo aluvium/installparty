@@ -6,9 +6,6 @@
 . "./lib/jenk.sh"
 ##################### - FUNCT - #############################
 
-#docker_compose() {
-#        echo "helo word $1"
-#}
 help() {
 	echo ""
 	echo ""
