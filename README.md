@@ -1,7 +1,7 @@
 # installparty
 ### Fast way to install devops tools
 
-Supported installations:
+##### Supported installations:
 docker
 docker-compose
 k3s
@@ -12,3 +12,6 @@ terraform
 packer
 docker
 jenkins
+
+##### Usage: 
+sudo installparty <program we want to install>
