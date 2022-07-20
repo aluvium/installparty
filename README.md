@@ -1,6 +1,7 @@
 # installparty
 ### Fast way to install devops tools
 
+Supported installations:
 docker
 docker-compose
 k3s
