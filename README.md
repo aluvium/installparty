@@ -1,5 +1,5 @@
 # installparty
-### Fast way to install devops tools
+### The tool used for fast deplployment devops tools.
 
 ##### Supported installations:
 docker
