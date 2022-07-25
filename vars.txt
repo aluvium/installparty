@@ -6,5 +6,4 @@ arkade
 helm
 terraform
 packer
-docker
 jenkins
