@@ -75,3 +75,11 @@ jobs:
           sudo sh installparty.sh k3s
           sudo sh installparty.sh arkade
           sudo sh installparty.sh helm
+  cmd-check-jenkins:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: jenkins installation
+        run: sudo installparty.sh jenkins <<< 8888
+      - name: Installed components verification
+        run: sudo installparty.sh jenkins <<< 8080
