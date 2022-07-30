@@ -1,21 +1,29 @@
 #!/bin/bash
 
-jenkins() {
+j_install() {
     apt-get update -y
     apt-get install openjdk-11-jdk -y
     apt-get install net-tools -y
     mkdir /usr/jenkins
     cd /usr/jenkins
     wget https://get.jenkins.io/war-stable/2.332.3/jenkins.war
-    java -jar jenkins.war --httpPort=8082 &
-    chck
+    java -jar /usr/jenkins/jenkins.war --httpPort=$port &
   }
 
-chck() {
-    P=$(netstat -nutap | awk ' { if($4 == ":::8082") print $4 }') 
-    if [ "$P" = ":::8082" ] ; then
-        echo "[*] Jenkins is running."
-    else
-	echo "[*] Jenkins not active"
-    fi
+jenkins() {
+    read  -p "Please specify port you want Jenkins at: " port
+    case $port in
+        ''|*[!0-9]*)    echo "Wrong number try again" && jenkins ;;
+        *)              echo "You pick $port for Jenkins server" && inst_check ;;
+    esac
+}
+
+inst_check() {
+    a=$(find / -type f -name jenkins.war)
+    if [[ -f $a ]] ; then echo "Jenkins already exist" && just_port && exit 0 ; fi
+    j_install
+}
+
+just_port() {
+    java -jar $a --httpPort=$port &
 }
