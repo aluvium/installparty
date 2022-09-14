@@ -2,9 +2,9 @@
 ### For fast installation following:
 
 ##### Supported installations:
-docker
-docker-compose
-k3s
+- docker
+- docker-compose
+- k3s
 k3s_agent
 arkade
 helm
