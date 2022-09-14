@@ -14,4 +14,4 @@
 - jenkins
 
 ##### Usage: 
-sudo installparty  < program-we-want-to-install >
+    sudo installparty  < program-we-want-to-install >
