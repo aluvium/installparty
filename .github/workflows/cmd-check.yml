@@ -80,6 +80,6 @@ jobs:
     steps: 
       - uses: actions/checkout@v3
       - name: jenkins installation
-        run: sudo installparty.sh jenkins <<< 8888
+        run: sudo sh installparty.sh jenkins <<< 8888
       - name: Installed components verification
-        run: sudo installparty.sh jenkins <<< 8080
+        run: sudo sh installparty.sh jenkins <<< 8888
