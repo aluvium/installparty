@@ -27,7 +27,8 @@ docker_compose() {
         if ! [ -f /usr/bin/docker ] ; then docker ; fi
         if [ $($var2 2> /dev/null && echo $?) -eq 0 ] ; then echo "$var2 already installed" && exit 0 ; fi
 
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
+        curl -L -o /$HOME/.docker/cli-plugins/docker-compose https://github.com/docker/compose/releases/download/v2.11.0/docker-compose-linux-x86_64
+        chmod +x /$HOME/.docker/cli-plugins/docker-compose
+	usermod -aG docker $USER
         docker-compose --version
 }
