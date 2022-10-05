@@ -14,4 +14,5 @@
 - jenkins
 
 ##### Usage: 
+    chmod +x installparty
     sudo installparty  <$PROGRAM>
