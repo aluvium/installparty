@@ -14,13 +14,13 @@ on:
 ########################################################################################
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  cmd-check-demo:
+  cmd-check-banner:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Program demo init
+      - name: Program banner init
         run: |  
           sh ./installparty.sh 
           sh ./installparty.sh -h 
