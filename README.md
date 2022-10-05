@@ -15,4 +15,4 @@
 
 ##### Usage: 
     chmod +x installparty
-    sudo installparty  <$PROGRAM>
+    sudo ./installparty  <$PROGRAM>
